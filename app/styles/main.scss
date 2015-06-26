@@ -1,0 +1,57 @@
+// bower:scss
+// endbower
+.browsehappy {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+body {
+	padding: 0;
+}
+
+label {
+	font-weight: normal;
+}
+
+input {
+	font-weight: 300;
+}
+
+.error-message {
+	margin-top: 10px;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.p7 {
+	padding-top: 7px;
+}
+
+.item {
+	cursor: pointer;
+	border-bottom: #ccc 1px dashed;
+	padding: 5px 0;
+	&:hover {
+		background: #f5f5f5;
+	}
+	.description {
+		border-top: #ccc 1px dotted;
+		margin-top: 10px;
+		padding-top: 10px;
+		display: none;
+	}
+	&.active {
+		background-color: #efe;
+		.description {
+			display: block;
+		}
+	}
+
+	&.add .description {
+		display: block;
+	}
+}

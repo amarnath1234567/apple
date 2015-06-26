@@ -1,0 +1,59 @@
+<div class="modal-header">
+	<h3 class="modal-title">{{data.title}}</h3>
+</div>
+<div class="modal-body">
+	{{data.text}}
+	<div ng-if="data.add" class="row item add">
+		<div class="col-sm-6 col-md-3">
+			<label>Username</label>
+			<input type="text" class="form-control" ng-model="add.username" placeholder="Username">
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<label>First Name</label>
+			<input type="text" class="form-control" ng-model="add.firstName" placeholder="First Name">
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<label>Last Name</label>
+			<input type="text" class="form-control" ng-model="add.lastName" placeholder="Last Name">
+		</div>
+		<div class="col-sm-4 col-md-2">
+			<label>Status</label>
+			<select class="form-control" ng-model="add.status">
+				<option ng-repeat="(key, value) in data.status" value="{{key}}">{{value}}</option>
+			</select>
+		</div>
+		<div class="col-sm-2 col-md-1">
+			<label>&nbsp;</label>
+			<br>
+			<button type="button" class="btn btn-primary" ng-click="add()">
+				<i class="fa fa-check"></i>
+			</button>
+		</div>
+		<div class="clearfix"></div>
+		<div class="col-md-12 description">
+			<p>
+				<label>Email</label>
+				<input type="email" class="form-control" ng-model="add.emailAddress" placeholder="Email Address">
+			</p>
+			<p>
+				<label>Birthday</label>
+				<p class="input-group">
+					<input type="text" class="form-control" datepicker-popup="{{'MM/dd/yyyy'}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" close-text="Close" />
+					<span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+				</p>
+			</p>
+			<p>
+				<label>Bio</label>
+				<textarea class="form-control" ng-model="add.bio" placeholder="Bio"></textarea>
+			</p>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="ok()">OK</button>
+	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

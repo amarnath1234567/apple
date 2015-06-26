@@ -1,0 +1,80 @@
+<div class="row hidden-xs">
+	<div class="col-sm-3 p7 pointer" ng-click="prioritize('username')">
+		<strong>
+			Username:
+			<i class="fa" ng-class="{'fa-chevron-up': sortData=='username'&&sortAsc, 'fa-chevron-down': sortData=='username'&&!sortAsc}"></i>
+		</strong>
+	</div>
+	<div class="col-sm-3 p7 pointer" ng-click="prioritize('firstName')">
+		<strong>
+			First Name:
+			<i class="fa" ng-class="{'fa-chevron-up': sortData=='firstName'&&sortAsc, 'fa-chevron-down': sortData=='firstName'&&!sortAsc}"></i>
+		</strong>
+	</div>
+	<div class="col-sm-3 p7 pointer" ng-click="prioritize('lastName')">
+		<strong>
+			Last Name:
+			<i class="fa" ng-class="{'fa-chevron-up': sortData=='lastName'&&sortAsc, 'fa-chevron-down': sortData=='lastName'&&!sortAsc}"></i>
+		</strong>
+	</div>
+	<div class="col-sm-2 p7 pointer" ng-click="prioritize('status')">
+		<strong>
+			Status:
+			<i class="fa" ng-class="{'fa-chevron-up': sortData=='status'&&sortAsc, 'fa-chevron-down': sortData=='status'&&!sortAsc}"></i>
+		</strong>
+	</div>
+	<div class="col-sm-1">
+		<button type="button" class="btn btn-success" ng-click="add()">
+			<i class="fa fa-plus"></i>
+		</button>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<hr>
+<div class="row item" ng-repeat="(key, value) in list | orderBy : sortData : sortAsc track by $index" ng-class="{'active': value.active}">
+	<div class="col-sm-3 p7" ng-click="toggleInformation(key)">
+		<strong class="visible-xs pointer">
+			Username:
+		</strong> {{value.username}}
+	</div>
+	<div class="col-sm-3 p7" ng-click="toggleInformation(key)">
+		<strong class="visible-xs pointer">
+			First Name:
+		</strong> {{value.firstName}}
+	</div>
+	<div class="col-sm-3 p7" ng-click="toggleInformation(key)">
+		<strong class="visible-xs pointer">
+			Last Name:
+		</strong> {{value.lastName}}
+	</div>
+	<div class="col-sm-2 p7" ng-click="toggleInformation(key)">
+		<strong class="visible-xs pointer">
+			Status:
+		</strong> {{status[value.status]}}
+	</div>
+	<div class="col-sm-1">
+		<button type="button" class="btn btn-danger" ng-click="delete(key)">
+			<i class="fa fa-times"></i>
+		</button>
+	</div>
+	<div class="clearfix"></div>
+	<div class="col-sm-12 description">
+		<p>
+			<strong>Email Address:</strong>
+			<br>{{value.emailAddress}}
+		</p>
+		<p>
+			<strong>Birthday:</strong>
+			<br>{{value.birthday}}
+		</p>
+		<p>
+			<strong>Bio:</strong>
+			<br>{{value.bio}}
+		</p>
+		<p ng-if="value.status === 3">
+			<strong>Last Sign In Date:</strong>
+			<br>{{value.lastSignInDate}}
+		</p>
+	</div>
+	<div class="clearfix"></div>
+</div>
